@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>智能书签访问统计</title>
+    <style>
+      body { font-family: system-ui, sans-serif; width: 320px; margin: 0; padding: 12px; }
+      h1 { font-size: 15px; margin: 0 0 10px; }
+      button { width: 100%; margin: 4px 0; padding: 8px; cursor: pointer; }
+      .stats { max-height: 240px; overflow: auto; border-top: 1px solid #ddd; margin-top: 10px; }
+      .row { display: flex; justify-content: space-between; padding: 4px 0; font-size: 13px; }
+      .row .title { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-right: 8px; }
+      .row .count { color: #4285f4; font-weight: 600; flex: none; }
+      .empty { color: #999; font-size: 13px; padding: 8px 0; }
+    </style>
+  </head>
+  <body>
+    <h1>智能书签访问统计</h1>
+    <button id="sortNow">立即排序书签栏</button>
+    <button id="refresh">刷新统计</button>
+    <button id="openOptions">打开设置</button>
+    <button id="clear" class="danger">清空统计数据</button>
+    <div class="stats" id="stats"></div>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

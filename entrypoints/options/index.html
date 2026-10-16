@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>智能书签访问统计 — 设置</title>
+    <style>
+      body { font-family: system-ui, sans-serif; max-width: 680px; margin: 24px auto; padding: 0 16px; }
+      h1 { font-size: 20px; }
+      section { border: 1px solid #ddd; border-radius: 10px; padding: 16px; margin: 12px 0; }
+      label { display: flex; align-items: center; gap: 8px; margin: 8px 0; }
+      input[type='number'] { width: 80px; }
+      .hint { color: #777; font-size: 12px; margin: 4px 0 0 26px; }
+      button { margin: 4px 8px 4px 0; padding: 8px 14px; cursor: pointer; }
+      #status { min-height: 20px; margin-top: 8px; }
+      #dedupeResult { white-space: pre-wrap; font-size: 12px; }
+    </style>
+  </head>
+  <body>
+    <h1>智能书签访问统计 — 设置</h1>
+
+    <section>
+      <h2>排序</h2>
+      <label><input type="checkbox" id="reorderNativeBar" /> 重排原生书签栏</label>
+      <label>
+        <span>原生栏方向</span>
+        <select id="nativeDirection">
+          <option value="rightHigh">最高在最右（默认）</option>
+          <option value="leftHigh">最高在最左</option>
+        </select>
+      </label>
+      <label>
+        <span>溢出方式</span>
+        <select id="overflowMode">
+          <option value="customFolder">自建「更多」文件夹（默认）</option>
+          <option value="browser">浏览器原生 &gt;&gt;</option>
+        </select>
+      </label>
+      <label><input type="checkbox" id="sortSubfolders" /> 递归排序文件夹内部</label>
+    </section>
+
+    <section>
+      <h2>自动升级到书签栏</h2>
+      <label><input type="checkbox" id="autoPromoteToBar" /> 启用</label>
+      <label>升级阈值（访问次数）：<input type="number" id="promoteThreshold" min="1" /></label>
+    </section>
+
+    <section>
+      <h2>跨设备同步</h2>
+      <label><input type="checkbox" id="syncEnabled" /> 使用浏览器账号同步（默认关闭）</label>
+    </section>
+
+    <section>
+      <h2>物理去重（破坏性，默认关闭）</h2>
+      <label><input type="checkbox" id="deduplicateEnabled" /> 允许物理删除重复书签</label>
+      <p class="hint">执行前会先预览；重复书签优先保留书签栏内的一份。</p>
+      <button id="dedupePreview">预览重复书签</button>
+      <button id="dedupeExecute">执行物理去重</button>
+      <div id="dedupeResult"></div>
+    </section>
+
+    <section>
+      <h2>开发调试</h2>
+      <label>调试重排周期（分钟，0 = 关闭）：<input type="number" id="debugSortIntervalMinutes" min="0" /></label>
+    </section>
+
+    <button id="save">保存设置</button>
+    <span id="status"></span>
+
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

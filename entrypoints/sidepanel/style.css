@@ -1,0 +1,108 @@
+:root {
+  color-scheme: light dark;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 15%, transparent);
+}
+
+.toolbar-btn {
+  cursor: pointer;
+}
+
+.breadcrumb {
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 关键布局：row-reverse 让「第一个 DOM 项」落在最右，
+   即热度最高的项永远贴右；低热度项向左延伸并在左侧被裁。 */
+.bookmark-row {
+  flex: 1;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.bookmark-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 180px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background: color-mix(in srgb, currentColor 8%, transparent);
+}
+
+.bookmark-item:hover {
+  background: color-mix(in srgb, currentColor 15%, transparent);
+}
+
+.bookmark-item .icon {
+  flex: none;
+}
+
+.bookmark-item .title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.more-popover {
+  position: absolute;
+  left: 8px;
+  bottom: 44px;
+  max-width: 260px;
+  max-height: 60vh;
+  overflow: auto;
+  padding: 6px;
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, currentColor 20%, transparent);
+  background: Canvas;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 25%);
+  z-index: 10;
+}
+
+.more-popover button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 6px 8px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.more-popover button:hover {
+  background: color-mix(in srgb, currentColor 12%, transparent);
+}

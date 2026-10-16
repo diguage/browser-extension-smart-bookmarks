@@ -1,0 +1,25 @@
+{
+  "name": "smart-bookmark-visits",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "统计书签被访问次数并按热度重排书签栏的浏览器扩展（Chrome / Edge / Firefox）",
+  "scripts": {
+    "dev": "wxt",
+    "dev:firefox": "wxt -b firefox",
+    "build": "wxt build",
+    "build:chrome": "wxt build -b chrome",
+    "build:edge": "wxt build -b edge",
+    "build:firefox": "wxt build -b firefox",
+    "prepare": "wxt prepare",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "webextension-polyfill": "^0.12.0"
+  },
+  "devDependencies": {
+    "@types/webextension-polyfill": "^0.12.6",
+    "typescript": "^7.0.2",
+    "wxt": "^0.21.4"
+  }
+}
